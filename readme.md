@@ -16,3 +16,8 @@ The program GuessingGame.java asks the user to get a random number.
 Learnings
 
 1. If else statements
+# Library management system 
+
+2024-01-05 - Current
+
+The program is implements a library management system. See Library/readme.md for details about it. Work in progress!
