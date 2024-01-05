@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 public class Borrower{
 	private String Name;
 	private int BorrowerId;
@@ -8,9 +9,17 @@ public class Borrower{
 	}
 
 	public Borrower(String Name){
-		this.Name = Name;
-		this.BorrowCount = 0;
-		this.BorrowerId = NextBorrowerId++;
+		try{
+			this.Name = Name;
+			this.BorrowCount = 0;
+			this.BorrowerId = NextBorrowerId++;
+		}
+		catch (InputMismatchException ex){
+			System.out.println("Wrong input type!");
+		}
+		catch (Exception ex){
+			System.out.println("Error"+ ex);
+		}
 	}
 
 	public String GetName(){

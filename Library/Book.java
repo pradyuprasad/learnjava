@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 public class Book{
 	String Title;
 	String ISBN;
@@ -7,10 +8,20 @@ public class Book{
 	public static void main(String[] args){
 	}
 	public Book(String Title, String ISBN, String Author){
-		this.Title = Title;
-		this.ISBN = ISBN;
-		this.Author = Author;
-		this.borrowed = false;
+		try {
+			this.Title = Title;
+			this.ISBN = ISBN;
+			this.Author = Author;
+			this.borrowed = false;
+		}
+		catch (InputMismatchException ex){
+			System.out.println("Wrong input type!");
+		}
+
+		catch (Exception ex){
+			System.out.println("Error"+ ex);
+		}
+
 	}
 	public String GetTitle(){
 		return this.Title;
