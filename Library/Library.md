@@ -13,7 +13,7 @@ Contains the main logic for managing books and borrowers.
 
 # Operations
 ## Basic
-1. Add new books into the library
+1. Add new books into the library (Done)
 2. Borrow a book from the library
 3. Return a book to the library
 4. Search for books by various criteria
