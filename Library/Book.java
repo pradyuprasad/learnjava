@@ -1,9 +1,10 @@
 import java.util.InputMismatchException;
 public class Book{
-	String Title;
-	String ISBN;
-	String Author;
-	boolean borrowed = false;
+	private String Title;
+	private String ISBN;
+	private String Author;
+	private boolean borrowed = false;
+	private String BorrowPerson = "";
 	
 	public static void main(String[] args){
 	}
@@ -23,6 +24,18 @@ public class Book{
 		}
 
 	}
+	
+	public void SetBorrower(String Name){
+		if (this.BorrowPerson != "" || this.borrowed == true){
+			throw new IllegalArgumentException("The same book cannot be borrowed by multiple people at once!");
+		}
+		else {
+			this.BorrowPerson = Name;
+		}
+	}
+	public String GetBorrower(){
+		return this.BorrowPerson;
+	}
 	public String GetTitle(){
 		return this.Title;
 	}
@@ -35,8 +48,7 @@ public class Book{
 	public boolean GetBorrowed(){
 		return this.borrowed;
 	}
-	public void BorrowBook(){
-		this.borrowed = true;
-		// need to make Borrower class and put it as an input to this function
+	public void SetBorrowed(boolean status){
+		this.borrowed = status;
 	}
 }

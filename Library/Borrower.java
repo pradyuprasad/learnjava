@@ -33,4 +33,12 @@ public class Borrower{
 	public int GetBorrowCount(){
 		return this.BorrowCount;
 	}
+	public void IncreaseBorrow(){
+		this.BorrowCount += 1;
+	}
+	public void DecreaseBorrow(){
+		if (this.BorrowCount <= 0){
+			throw 
+		}
+	}
 }
