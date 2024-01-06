@@ -18,6 +18,6 @@ Learnings
 1. If else statements
 # Library management system 
 
-2024-01-05 - Current
+2024-01-05 - 2024-01-07
 
-The program is implements a library management system. See Library/readme.md for details about it. Work in progress!
+The program is implements a library management system. See Library/readme.md for details about it.
