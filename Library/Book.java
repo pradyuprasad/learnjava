@@ -25,13 +25,8 @@ public class Book{
 
 	}
 	
-	public void SetBorrower(String Name){
-		if (this.BorrowPerson != "" || this.borrowed == true){
-			throw new IllegalArgumentException("The same book cannot be borrowed by multiple people at once!");
-		}
-		else {
-			this.BorrowPerson = Name;
-		}
+	public void SetBorrower(String Name) throws Exception{
+		this.BorrowPerson = Name;
 	}
 	public String GetBorrower(){
 		return this.BorrowPerson;

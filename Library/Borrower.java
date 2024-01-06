@@ -25,7 +25,7 @@ public class Borrower{
 	private int BorrowerId;
 	private int BorrowCount;
 	private static int NextBorrowerId = 1;
-	private ArrayList<Book> BookList;
+	private ArrayList<Book> BookList =  new ArrayList<Book>();
 	public int BorrowLimit = 7;
 
 	public static void main(String[] args){
@@ -99,5 +99,18 @@ public class Borrower{
 			this.BookList.remove(b);
 		}
 	} 
+	public void ViewBookList(){
+		if (this.BookList.size() == 0){
+			System.out.println("The book list is empty");
+		}
+		else{
+			for (Book k : this.BookList){
+				System.out.println(k);
+			}
+		}
+	}
+	public void ClearBookList(){
+		this.BookList = new ArrayList<Book>(); 
+	}
 }
 

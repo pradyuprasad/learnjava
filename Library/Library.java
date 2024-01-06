@@ -18,6 +18,17 @@ public class Library{
 		System.out.println("This is a library management system!");
 		Book b1 = new Book("The Power Broker", "1234", "Robert Caro");
 		Borrower pradyu = new Borrower("Pradyumna");
+		try{
+			BorrowBook(b1, pradyu);
+			ReturnBook(b1, pradyu);
+			pradyu.ViewBookList();
+			
+		}
+
+		catch (Exception ex){
+			System.out.println(ex);
+			return;
+		}
 	}
 	public static void BorrowBook(Book b, Borrower p) throws AlreadyBorrowed,BorrowLimitHit{
 		/* Steps 
@@ -32,6 +43,7 @@ public class Library{
 		 * 4. Put this into the person's borrowed books list DONE
 		 */
 		if (b.GetBorrowed() == true || b.GetBorrower() != ""){
+			System.out.println("b.GetBorrowed is" + b.GetBorrowed());
 			// check if book is borrowed
 			throw new AlreadyBorrowed(); 
 			// if it is borrowed, throw exception that it is borrowed
@@ -42,13 +54,17 @@ public class Library{
 		else {
 			try {
 			b.SetBorrowed(true);
+			boolean borrow_status = b.GetBorrowed();
+			System.out.println("Borrowed has been set to"+borrow_status);
 			}
-			catch (IllegalArgumentException ex){
+			catch (Exception ex){
 				System.out.println("Error!" + ex);
 
 			}
 			try{
 				b.SetBorrower(p.GetName());
+				String borrower = b.GetBorrower();
+				System.out.println("Borrower has been set to "+ borrower);
 			}
 
 			catch (Exception ex){
@@ -57,12 +73,17 @@ public class Library{
 
 			try {
 				p.IncreaseBorrow();
+				System.out.println("Borrow increased to " + p.GetBorrowCount());
+
 			}
 			catch (Exception ex){
 				System.out.println("Error!"+ ex);
 			}
 			try {
+				System.out.println("Staring the add");
 				p.AddBook(b);
+				System.out.println("Borrow list is now");
+				p.ViewBookList();
 			}
 			catch (Exception ex){
 				System.out.println("Error!"+ ex);
