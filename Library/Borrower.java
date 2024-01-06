@@ -7,11 +7,6 @@ class DuplicateBookException extends Exception{
 	}
 }
 
-class BookNotThere extends Exception {
-	public BookNotThere(){
-		super("This book isn't there!");
-	}
-}
 
 
 
@@ -31,6 +26,7 @@ public class Borrower{
 	private int BorrowCount;
 	private static int NextBorrowerId = 1;
 	private ArrayList<Book> BookList;
+	public int BorrowLimit = 7;
 
 	public static void main(String[] args){
 	}
