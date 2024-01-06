@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 class AlreadyBorrowed extends Exception {
 	public AlreadyBorrowed (){
 		super("This book has already been borrowed!");
@@ -6,7 +7,7 @@ class AlreadyBorrowed extends Exception {
 
 class BorrowLimitHit extends Exception {
 	public BorrowLimitHit(){
-		super("You have hit your borrow limit!");
+		super("You have hit .out borrow limit!");
 	}
 }
 
@@ -14,6 +15,8 @@ class BorrowLimitHit extends Exception {
 
 
 public class Library{
+	private static ArrayList<Book> Collection = new ArrayList<Book>();
+	private static ArrayList<Borrower> Borrowers = new ArrayList<Borrower>();
 	public static void main(String[] args){
 		System.out.println("This is a library management system!");
 		Book b1 = new Book("The Power Broker", "1234", "Robert Caro");
@@ -30,6 +33,26 @@ public class Library{
 			return;
 		}
 	}
+	public static void NewBook(String Name, String ISBN, String Author){
+		Book b = new Book(Name, ISBN, Author);
+		Collection.add(b);
+	}
+	public static void ViewCollection(){
+		for (Book book: Collection){
+			System.out.println("Book: "+ book.GetTitle());
+			System.out.println("Borrowing status is" + book.GetBorrowed() + "\n");
+		}
+	}
+
+	public static void AddBorrower(String name){
+		Borrower p = new Borrower(name);
+		Borrowers.add(p);
+	} 
+
+
+
+
+
 	public static void BorrowBook(Book b, Borrower p) throws AlreadyBorrowed,BorrowLimitHit{
 		/* Steps 
 		 * Possibly check if the book exists? Depends on use case! We're probably only going to put variables as inputs so it should work!
